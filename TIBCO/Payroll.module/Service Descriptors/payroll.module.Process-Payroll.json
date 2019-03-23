@@ -1,0 +1,155 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/payroll{EmployeeID}&{Period}" : {
+      "put" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "put-payroll",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Payroll"
+          },
+          "required" : true
+        }, {
+          "name" : "Period",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        }, {
+          "name" : "EmployeeID",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Payroll to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Payroll"
+            }
+          }
+        }
+      }
+    },
+    "/payroll_by_employeeid{EmployeeID}" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-payroll_by_employeeid",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "EmployeeID",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Payrolls to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Payrolls"
+            }
+          }
+        }
+      }
+    },
+    "/payroll_by_period{Period}" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-payroll_by_period",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Period",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Payrolls to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Payrolls"
+            }
+          }
+        }
+      }
+    },
+    "/payroll1" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-payroll1",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a Payrolls to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Payrolls"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Payrolls" : {
+      "type" : "object",
+      "properties" : {
+        "Payroll" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Payroll",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "Payroll" : {
+      "type" : "object",
+      "required" : [ "wages", "period", "hours", "incentive", "id", "employeeid" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer"
+        },
+        "employeeid" : {
+          "type" : "integer"
+        },
+        "period" : {
+          "type" : "string"
+        },
+        "hours" : {
+          "type" : "number"
+        },
+        "wages" : {
+          "type" : "number"
+        },
+        "incentive" : {
+          "type" : "number"
+        }
+      }
+    }
+  }
+}

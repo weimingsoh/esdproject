@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_mnENwE16EemN4rxUZVoj1Q" targetNamespace="http://tns.tibco.com/bw/composite/Payroll.module" name="Payroll.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_ss3HUk16EemN4rxUZVoj1Q" name="payroll" promote="ComponentProcess/payroll">
+    <sca:interface.wsdl xmi:id="_ss4VcE16EemN4rxUZVoj1Q" interface="http://xmlns.example.com/20190323221738PLT#wsdl.interface(payroll)" scaext:wsdlLocation="../Processes/payroll/module/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_ss7YwE16EemN4rxUZVoj1Q" name="RestService" path="/payroll{EmployeeID}&amp;{Period}" docBasePath="http://localhost:7777/Payroll.module" docResourcePath="Payroll" basePath="/" connector="payroll.module.Payroll" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/payroll.module.Process-Payroll.json">
+      <operation xmi:id="_ss-cEE16EemN4rxUZVoj1Q" operationName="put" nickname="put-payroll" httpMethod="PUT" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_htUTwE1-EemN4rxUZVoj1Q">
+        <parameterMapping xmi:id="_htU60E1-EemN4rxUZVoj1Q" parameterName="EmployeeID" parameterType="Path" required="true"/>
+        <parameterMapping xmi:id="_htU60U1-EemN4rxUZVoj1Q" parameterName="Period" parameterType="Path" required="true"/>
+      </parameters>
+      <advancedConfig xmi:id="_ss7YwU16EemN4rxUZVoj1Q" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_ss-cEU16EemN4rxUZVoj1Q" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_hyMCIE19EemN4rxUZVoj1Q" name="payroll1" promote="ComponentProcess/payroll1">
+    <sca:interface.wsdl xmi:id="_hyMCJE19EemN4rxUZVoj1Q" interface="http://xmlns.example.com/20190323221738PLT#wsdl.interface(payroll1)" scaext:wsdlLocation="../Processes/payroll/module/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_hySv0E19EemN4rxUZVoj1Q" name="RestService1" path="/payroll1" docBasePath="http://localhost:7777/Payroll.module" docResourcePath="Payroll" basePath="/" connector="payroll.module.Payroll" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/payroll.module.Process-Payroll.json">
+      <operation xmi:id="_hyVzIE19EemN4rxUZVoj1Q" operationName="get" nickname="get-payroll1" httpMethod="GET" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <advancedConfig xmi:id="_hySv0U19EemN4rxUZVoj1Q" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_hyVzIU19EemN4rxUZVoj1Q" bindingName="RestService1"/>
+  </sca:service>
+  <sca:service xmi:id="_yZsfkk2AEemN4rxUZVoj1Q" name="payroll_by_employeeid" promote="ComponentProcess/payroll_by_employeeid">
+    <sca:interface.wsdl xmi:id="_yZsflk2AEemN4rxUZVoj1Q" interface="http://xmlns.example.com/20190323221738PLT#wsdl.interface(payroll_by_employeeid1)" scaext:wsdlLocation="../Processes/payroll/module/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_yZ1pgE2AEemN4rxUZVoj1Q" name="RestService2" path="/payroll_by_employeeid{EmployeeID}" docBasePath="http://localhost:7777/Payroll.module" docResourcePath="Payroll" basePath="/" connector="payroll.module.Payroll" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/payroll.module.Process-Payroll.json">
+      <operation xmi:id="_yZ5T4E2AEemN4rxUZVoj1Q" operationName="get" nickname="get-payroll_by_employeeid" httpMethod="GET" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_Ye1qoE2BEemN4rxUZVoj1Q">
+        <parameterMapping xmi:id="_Ye1qoU2BEemN4rxUZVoj1Q" parameterName="EmployeeID" parameterType="Path" required="true"/>
+      </parameters>
+      <advancedConfig xmi:id="_yZ1pgU2AEemN4rxUZVoj1Q" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_yZ5T4U2AEemN4rxUZVoj1Q" bindingName="RestService2"/>
+  </sca:service>
+  <sca:service xmi:id="__p-0ck2BEemN4rxUZVoj1Q" name="payroll_by_period" promote="ComponentProcess/payroll_by_period">
+    <sca:interface.wsdl xmi:id="__p-0dk2BEemN4rxUZVoj1Q" interface="http://xmlns.example.com/20190323221738PLT#wsdl.interface(payroll_by_period)" scaext:wsdlLocation="../Processes/payroll/module/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="__qLBsE2BEemN4rxUZVoj1Q" name="RestService3" path="/payroll_by_period{Period}" docBasePath="http://localhost:7777/Payroll.module" docResourcePath="Payroll" basePath="/" connector="payroll.module.Payroll" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/payroll.module.Process-Payroll.json">
+      <operation xmi:id="__qOsEE2BEemN4rxUZVoj1Q" operationName="get" nickname="get-payroll_by_period" httpMethod="GET" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_Sha0gE2CEemN4rxUZVoj1Q">
+        <parameterMapping xmi:id="_Sha0gU2CEemN4rxUZVoj1Q" parameterName="Period" parameterType="Path" required="true"/>
+      </parameters>
+      <advancedConfig xmi:id="__qLBsU2BEemN4rxUZVoj1Q" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="__qOsEU2BEemN4rxUZVoj1Q" bindingName="RestService3"/>
+  </sca:service>
+  <sca:property xmi:id="_mzjKkE16EemN4rxUZVoj1Q" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_m0Wb0E16EemN4rxUZVoj1Q" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_m06cgE16EemN4rxUZVoj1Q" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_m1g5cE16EemN4rxUZVoj1Q" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_m2IkgE16EemN4rxUZVoj1Q" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_m2tzUE16EemN4rxUZVoj1Q" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_m3aW4E16EemN4rxUZVoj1Q" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_mq3IoE16EemN4rxUZVoj1Q" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_mq3IoU16EemN4rxUZVoj1Q" processName="payroll.module.Process"/>
+    <sca:service xmi:id="_ss3HUE16EemN4rxUZVoj1Q" name="payroll">
+      <sca:interface.wsdl xmi:id="_ss3HUU16EemN4rxUZVoj1Q" interface="http://xmlns.example.com/20190323221738PLT#wsdl.interface(payroll)"/>
+    </sca:service>
+    <sca:service xmi:id="_hyLbEE19EemN4rxUZVoj1Q" name="payroll1">
+      <sca:interface.wsdl xmi:id="_hyLbEU19EemN4rxUZVoj1Q" interface="http://xmlns.example.com/20190323221738PLT#wsdl.interface(payroll1)"/>
+    </sca:service>
+    <sca:service xmi:id="_yZsfkE2AEemN4rxUZVoj1Q" name="payroll_by_employeeid">
+      <sca:interface.wsdl xmi:id="_yZsfkU2AEemN4rxUZVoj1Q" interface="http://xmlns.example.com/20190323221738PLT#wsdl.interface(payroll_by_employeeid1)"/>
+    </sca:service>
+    <sca:service xmi:id="__p-0cE2BEemN4rxUZVoj1Q" name="payroll_by_period">
+      <sca:interface.wsdl xmi:id="__p-0cU2BEemN4rxUZVoj1Q" interface="http://xmlns.example.com/20190323221738PLT#wsdl.interface(payroll_by_period)"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

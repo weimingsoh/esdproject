@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_tlqrsEilEemGVon_Xjzatw" targetNamespace="http://tns.tibco.com/bw/composite/Employee.module" name="Employee.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_72kD8UmhEem1JYNLB4s2TQ" name="employees" promote="ComponentProcess/employees">
+    <sca:interface.wsdl xmi:id="_72krAUmhEem1JYNLB4s2TQ" interface="http://xmlns.example.com/20190319004258PLT#wsdl.interface(employees)" scaext:wsdlLocation="../Processes/employee/module/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_72-6sEmhEem1JYNLB4s2TQ" name="RestService" path="/employees" docBasePath="http://localhost:7777/Employee.module" docResourcePath="Employees" basePath="/" connector="employee.module.Employees" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/employee.module.Process-Employees.json">
+      <operation xmi:id="_73X8QEmhEem1JYNLB4s2TQ" operationName="get" nickname="get-employees" httpMethod="GET" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_73YjUEmhEem1JYNLB4s2TQ"/>
+      <advancedConfig xmi:id="_72-6sUmhEem1JYNLB4s2TQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_73X8QUmhEem1JYNLB4s2TQ" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_4Xp3okmiEem1JYNLB4s2TQ" name="employee" promote="ComponentProcess/employee">
+    <sca:interface.wsdl xmi:id="_4XqesUmiEem1JYNLB4s2TQ" interface="http://xmlns.example.com/20190319004258PLT#wsdl.interface(employee)" scaext:wsdlLocation="../Processes/employee/module/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_4YTX4EmiEem1JYNLB4s2TQ" name="RestService1" path="/employee/{id}" docBasePath="http://localhost:7777/Employee.module" docResourcePath="Employees" basePath="/" connector="employee.module.Employees" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/employee.module.Process-Employees.json">
+      <operation xmi:id="_4Yp9MEmiEem1JYNLB4s2TQ" operationName="get" nickname="get-employee" httpMethod="GET" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_4YryYEmiEem1JYNLB4s2TQ">
+        <parameterMapping xmi:id="_4YryYUmiEem1JYNLB4s2TQ" parameterName="id" parameterType="Path" required="true"/>
+      </parameters>
+      <advancedConfig xmi:id="_4YTX4UmiEem1JYNLB4s2TQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_4Yp9MUmiEem1JYNLB4s2TQ" bindingName="RestService1"/>
+  </sca:service>
+  <sca:property xmi:id="_vnVBcEilEemGVon_Xjzatw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_vnqYoEilEemGVon_Xjzatw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_voKH4EilEemGVon_Xjzatw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_voYKUEilEemGVon_Xjzatw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_voh7UEilEemGVon_Xjzatw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_vorsUEilEemGVon_Xjzatw" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_vo3SgEilEemGVon_Xjzatw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_E-HTwEmhEem1JYNLB4s2TQ" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_E-HTwUmhEem1JYNLB4s2TQ" processName="employee.module.Process"/>
+    <sca:service xmi:id="_72jc4EmhEem1JYNLB4s2TQ" name="employees">
+      <sca:interface.wsdl xmi:id="_72kD8EmhEem1JYNLB4s2TQ" interface="http://xmlns.example.com/20190319004258PLT#wsdl.interface(employees)"/>
+    </sca:service>
+    <sca:service xmi:id="_4Xp3oEmiEem1JYNLB4s2TQ" name="employee">
+      <sca:interface.wsdl xmi:id="_4Xp3oUmiEem1JYNLB4s2TQ" interface="http://xmlns.example.com/20190319004258PLT#wsdl.interface(employee)" scaext:wsdlLocation="../Processes/employee/module/Process.bwp"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

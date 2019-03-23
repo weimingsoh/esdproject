@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--Created with Liquid Studio 2018 (https://www.liquid-technologies.com)--><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ems.com/Payrolls" elementFormDefault="qualified" targetNamespace="http://www.ems.com/Payrolls">
+    <complexType name="Payroll">
+        <sequence>
+            <element minOccurs="1" name="id" type="integer"/>
+            <element minOccurs="1" name="employeeid" type="integer"/>
+            <element minOccurs="1" name="period" type="string"/>
+            <element minOccurs="1" name="hours" type="float"/>
+            <element minOccurs="1" name="wages" type="float"/>
+            <element minOccurs="1" name="incentive" type="float"/>
+        </sequence>
+    </complexType>
+    <element name="Payroll" type="tns:Payroll"/>
+    <complexType name="Payrolls">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" ref="tns:Payroll"/>
+        </sequence>
+    </complexType>
+    <element name="Payrolls" type="tns:Payrolls"/>
+    <complexType name="stringArray">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="string" type="string"/>
+    </sequence>
+  </complexType>
+    <element name="stringArray" type="tns:stringArray"/>
+</schema>

@@ -1,0 +1,157 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "[GET] Employees",
+    "description" : "[GET] Employees"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/employees" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-employees",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a Employees to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Employees"
+            }
+          }
+        }
+      }
+    },
+    "/employee/{id}" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-employee",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Employee to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Employee"
+            }
+          }
+        }
+      }
+    },
+    "/employees1/{id}" : {
+      "put" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "put-employees1",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Employee"
+          },
+          "required" : true
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Employee to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Employee"
+            }
+          }
+        }
+      }
+    },
+    "/employee" : {
+      "post" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "post-employee",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Employee"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Employee" : {
+      "type" : "object",
+      "required" : [ "address", "nationality", "phone", "sex", "name", "id", "email" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "phone" : {
+          "type" : "integer"
+        },
+        "sex" : {
+          "type" : "string"
+        },
+        "nationality" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Employees" : {
+      "type" : "object",
+      "properties" : {
+        "Employee" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Employee",
+            "uniqueItems" : false
+          }
+        }
+      }
+    }
+  }
+}

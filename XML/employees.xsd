@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Created with Liquid Studio 2018 (https://www.liquid-technologies.com) -->
 <schema xmlns:tns="http://www.ems.com/Employees" elementFormDefault="qualified" targetNamespace="http://www.ems.com/Employees" xmlns="http://www.w3.org/2001/XMLSchema">
     <complexType name="Employee">
@@ -9,6 +9,7 @@
             <element name="phone" type="integer" minOccurs="1" />
             <element name="sex" type="string" minOccurs="1" />
             <element name="nationality" type="string" minOccurs="1" />
+            <element name="email" type="string" minOccurs="1" />
         </sequence>
     </complexType>
     <element name="Employee" type="tns:Employee" />

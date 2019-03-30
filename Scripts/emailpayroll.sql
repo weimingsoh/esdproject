@@ -6,7 +6,7 @@ USE `emailpayroll`;
 DROP TABLE IF EXISTS `emailpayroll`;
 CREATE TABLE `emailpayroll` (
   `ID` INT(11) NOT NULL auto_increment,
-  `EID` INT(11) NOT NULL auto_increment,
+  `EID` INT(11) NOT NULL,
   `Name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `amount` float NOT NULL,

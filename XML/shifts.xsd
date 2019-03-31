@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Studio 2018 (https://www.liquid-technologies.com) -->
+<schema xmlns:tns="http://www.ems.com/Shifts" elementFormDefault="qualified" targetNamespace="http://www.ems.com/Shifts" xmlns="http://www.w3.org/2001/XMLSchema">
+    <complexType name="Add_Shift">
+        <sequence>
+            <element name="Add_Shift_Details" type="tns:Add_Shift_Details" minOccurs="1" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+    <element name="Add_Shift" type="tns:Add_Shift" />
+    
+    <complexType name="Add_Shift_Details">
+        <sequence>
+            <element name="EmployeeID" type="integer" minOccurs="1" />
+            <element name="period" type="string" minOccurs="1" />
+            <element name="p_day" type="string" minOccurs="1" />
+            <element name="timing" type="string" minOccurs="1" />
+            <element name="status" type="string" minOccurs="1" />
+        </sequence>
+    </complexType>
+    <element name="Add_Shift_Details" type="tns:Add_Shift_Details" />
+
+    <complexType name="Pshift">
+        <sequence>
+            <element name="Shift_id" type="integer" minOccurs="1" />
+            <element name="EmployeeID" type="integer" minOccurs="1" />
+            <element name="period" type="string" minOccurs="1" />
+            <element name="p_day" type="string" minOccurs="1" />
+            <element name="timing" type="string" minOccurs="1" />
+            <element name="status" type="string" minOccurs="1" />
+        </sequence>
+    </complexType>
+    <element name="Pshift" type="tns:Pshift" />
+</schema>

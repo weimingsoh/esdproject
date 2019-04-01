@@ -19,7 +19,14 @@
     </complexType>
     <element name="Add_Shift_Details" type="tns:Add_Shift_Details" />
 
-    <complexType name="Pshift">
+    <complexType name="PShift">
+        <sequence>
+            <element name="PShift_Details" type="tns:PShift_Details" minOccurs="1" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+    <element name="PShift" type="tns:PShift" />
+
+    <complexType name="PShift_Details">
         <sequence>
             <element name="Shift_id" type="integer" minOccurs="1" />
             <element name="EmployeeID" type="integer" minOccurs="1" />
@@ -29,5 +36,31 @@
             <element name="status" type="string" minOccurs="1" />
         </sequence>
     </complexType>
-    <element name="Pshift" type="tns:Pshift" />
+    <element name="PShift_Details" type="tns:PShift_Details" />
+
+    <complexType name="Update_Shift">
+        <sequence>
+            <element name="Update_Shift_Status" type="tns:Update_Shift_Status" minOccurs="1" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+    <element name="Update_Shift" type="tns:Update_Shift" />
+
+    <complexType name="Update_Shift_Status">
+        <sequence>
+            <element name="status" type="string" minOccurs="1" />
+        </sequence>
+    </complexType>
+    <element name="Update_Shift_Status" type="tns:Update_Shift_Status" />
+
+    <complexType name="Cshift">
+        <sequence>
+            <element name="Shift_id" type="integer" minOccurs="1" />
+            <element name="EmployeeID" type="integer" minOccurs="1" />
+            <element name="period" type="string" minOccurs="1" />
+            <element name="p_day" type="string" minOccurs="1" />
+            <element name="timing" type="string" minOccurs="1" />
+        </sequence>
+    </complexType>
+    <element name="Cshift" type="tns:Cshift" />
+
 </schema>

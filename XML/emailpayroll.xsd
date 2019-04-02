@@ -3,7 +3,6 @@
 <schema xmlns:tns="http://www.ems.com/emailpayroll" elementFormDefault="qualified" targetNamespace="http://www.ems.com/emailpayroll" xmlns="http://www.w3.org/2001/XMLSchema">
     <complexType name="emailpayroll">
         <sequence>
-            <element name="id" type="integer" minOccurs="1" />
             <element name="EID" type="integer" minOccurs="1" />
             <element name="Name" type="string" minOccurs="1" />
             <element name="email" type="string" minOccurs="1" />

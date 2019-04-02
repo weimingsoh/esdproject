@@ -24,13 +24,14 @@ if(!isEmpty($errors)) {
 $choice = $_POST['choice'];
 $username = $_POST['username'];
 $enteredPwd = $_POST['password'];
+
 //redirect for employer login - location not decided yet
 if ($choice == "Employer" && in_array($username,$employerIDs) && in_array($enteredPwd,$employerPWs) ){
-    header("Location: home - unused.php");
+    header("Location: employer-view.php");
 }
 //redirect for employee login location not decided yet
 elseif ($choice == "Employee" && in_array($username,$employeeIDs) && in_array($enteredPwd,$employeePWs) ){
-    header("Location: home - unused.php");
+    header("Location: home - employee-view.php");
 }
 //error handling
 elseif (empty($username) || empty($enteredPwd)){

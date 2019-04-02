@@ -1,17 +1,24 @@
 <html>
     <body>
         
-        <h1>Add Employeee</h1>
+        <h1>Edit Employee View</h1>
+        <?php
+        $employeeid = $_GET["id"];
+        #api call for employee detail base on employee id
+        include "invoke/new_service_call.php";
+        $employee = get_employee($employeeid);
+         
+        $employeeobj = (object) $employee;          
         
-
-        <form action='addemployee.php' method='POST'>
+        echo "
+        <form action='editemployee.php' method='post'>
             <table>
                 <tr>
                     <td>
                         ID
                     </td>
                     <td>
-                        <input type='text' name='id'/>
+                        <input type='text' name='id' value= '$employeeobj->id'/>
                     </td>
                 </tr>
                 <tr>
@@ -19,7 +26,7 @@
                         Name
                     </td>
                     <td>
-                        <input type='text' name='name'/>
+                        <input type='text' name='name' value= '$employeeobj->name'/>
                     </td>
                 </tr>
                 <tr>
@@ -27,7 +34,7 @@
                         Address
                     </td>
                     <td>
-                        <input type='text' name='address'/>
+                        <input type='text' name='address' value= '$employeeobj->address'/>
                     </td>
                 </tr>
                 <tr>
@@ -35,7 +42,7 @@
                         Phone
                     </td>
                     <td>
-                        <input type='text' name='phone'/>
+                        <input type='text' name='phone' value= '$employeeobj->phone'/>
                     </td>
                 </tr>
                 <tr>
@@ -43,7 +50,7 @@
                         Sex
                     </td>
                     <td>
-                        <input type='text' name='sex' />
+                        <input type='text' name='sex' value= '$employeeobj->sex'/>
                     </td>
                 </tr>
                 <tr>
@@ -51,7 +58,7 @@
                         Nationality
                     </td>
                     <td>
-                        <input type='text' name='nationality'/>
+                        <input type='text' name='nationality' value= '$employeeobj->nationality'/>
                     </td>
                 </tr>
                 <tr>
@@ -59,14 +66,19 @@
                         Email
                     </td>
                     <td>
-                        <input type='text' name='email'/>
+                        <input type='text' name='email' value= '$employeeobj->email'/>
                     </td>
                 </tr>
             </table>
             
-            <input type='submit' action ='addemployee.php'/>
+            <input type='submit' action ='editemployee.php' />
         
         </form>
         
     </body>
 </html>
+"
+
+
+
+?>

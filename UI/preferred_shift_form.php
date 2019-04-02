@@ -30,7 +30,7 @@
 	
    <body>
        <h3>Preferred Schedule</h3>
-      <form action="shift_check.php" method='post'>
+      <form action="preferred_shift.php" method='post'>
         <input name="empid" type="hidden" value="1"/>
         <input name="period" type="hidden" value="20190101"/>
          <table id='t01'>
@@ -45,33 +45,33 @@
              </th>
              <tr>
                  <td>Morning</td>
-                 <td><input type="checkbox" name="Shift[]" value="Monday-Morning"></td>
-                 <td><input type="checkbox" name="Shift[]" value="Tuesday-Morning"></td>
-                 <td><input type="checkbox" name="Shift[]" value="Wednesday-Morning"></td>
-                 <td><input type="checkbox" name="Shift[]" value="Thursday-Morning"></td>
-                 <td><input type="checkbox" name="Shift[]" value="Friday-Morning"></td>
-                 <td><input type="checkbox" name="Shift[]" value="Saturday-Morning"></td>
-                 <td><input type="checkbox" name="Shift[]" value="Sunday-Morning"></td>
+                 <td><input type="checkbox" name="Shift[]" value="Monday,Morning"></td>
+                 <td><input type="checkbox" name="Shift[]" value="TuesdayMorning"></td>
+                 <td><input type="checkbox" name="Shift[]" value="Wednesday,Morning"></td>
+                 <td><input type="checkbox" name="Shift[]" value="Thursday,Morning"></td>
+                 <td><input type="checkbox" name="Shift[]" value="Friday,Morning"></td>
+                 <td><input type="checkbox" name="Shift[]" value="Saturday,Morning"></td>
+                 <td><input type="checkbox" name="Shift[]" value="Sunday,Morning"></td>
              </tr>
              <tr>
                 <td>Afternoon</td>
-                <td><input type="checkbox" name="Shift[]" value="Monday-Afternoon"></td>
-                <td><input type="checkbox" name="Shift[]" value="Tuesday-Afternoon"></td>
-                <td><input type="checkbox" name="Shift[]" value="Wednesday-Afternoon"></td>
-                <td><input type="checkbox" name="Shift[]" value="Thursday-Afternoon"></td>
-                <td><input type="checkbox" name="Shift[]" value="Friday-Afternoon"></td>
-                <td><input type="checkbox" name="Shift[]" value="Saturday-Afternoon"></td>
-                <td><input type="checkbox" name="Shift[]" value="Sunday-Afternoon"></td>
+                <td><input type="checkbox" name="Shift[]" value="Monday,Afternoon"></td>
+                <td><input type="checkbox" name="Shift[]" value="Tuesday,Afternoon"></td>
+                <td><input type="checkbox" name="Shift[]" value="Wednesday,Afternoon"></td>
+                <td><input type="checkbox" name="Shift[]" value="Thursday,Afternoon"></td>
+                <td><input type="checkbox" name="Shift[]" value="Friday,Afternoon"></td>
+                <td><input type="checkbox" name="Shift[]" value="Saturday,Afternoon"></td>
+                <td><input type="checkbox" name="Shift[]" value="Sunday,Afternoon"></td>
             </tr>
             <tr>
                 <td>Night</td>
-                <td><input type="checkbox" name="Shift[]" value="Monday-Night"></td>
-                <td><input type="checkbox" name="Shift[]" value="Tuesday-Night"></td>
-                <td><input type="checkbox" name="Shift[]" value="Wednesday-Night"></td>
-                <td><input type="checkbox" name="Shift[]" value="Thursday-Night"></td>
-                <td><input type="checkbox" name="Shift[]" value="Friday-Night"></td>
-                <td><input type="checkbox" name="Shift[]" value="Saturday-Night"></td>
-                <td><input type="checkbox" name="Shift[]" value="Sunday-Night"></td>
+                <td><input type="checkbox" name="Shift[]" value="Monday,Night"></td>
+                <td><input type="checkbox" name="Shift[]" value="Tuesday,Night"></td>
+                <td><input type="checkbox" name="Shift[]" value="Wednesday,Night"></td>
+                <td><input type="checkbox" name="Shift[]" value="Thursday,Night"></td>
+                <td><input type="checkbox" name="Shift[]" value="Friday,Night"></td>
+                <td><input type="checkbox" name="Shift[]" value="Saturday,Night"></td>
+                <td><input type="checkbox" name="Shift[]" value="Sunday,Night"></td>
             </tr>
          </table>
          <input type='submit' value='Submit'>   

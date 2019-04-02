@@ -9,7 +9,7 @@ class payroll{
     }
     
     function get_by_eid($id) {
-        $serviceURL = "http://CalvinSiew:8080/payroll_by_employeeid".$id;
+        $serviceURL = "http://CalvinSiew:8080/payroll_by_employeeid/".$id;
         $json = file_get_contents($serviceURL);
         $data = json_decode($json, TRUE);
         $payroll_list= $data['Payroll'];
@@ -17,7 +17,7 @@ class payroll{
     }
     
     function get_by_period($period){
-        $serviceURL = "http://CalvinSiew:8080/payroll_by_period".$period;
+        $serviceURL = "http://CalvinSiew:8080/payroll_by_period/".$period;
         $json = file_get_contents($serviceURL);
         $data = json_decode($json, TRUE);
         $payroll_list= $data['Payroll'];
@@ -48,25 +48,46 @@ class payroll{
 }
 
 class shift{
-    function submit_form($data){
-        // $data = array("name" => "Hagrid", "age" => "36");                                                                    
-        $data_string = json_encode($data);                                                                                   
-                                                                                                                            
-        $ch = curl_init('http://CalvinSiew:8080/pshifts');                                                                      
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
-            'Content-Type: application/json',                                                                                
-            'Content-Length: ' . strlen($data_string))                                                                       
-        );                                                                                                                   
-                                                                                                                            
+    function post_preferred_form($data){
+        $url = 'http://CalvinSiew:8080/shifts_add_preferred';
+        $ch = curl_init($url);
+        $payload = json_encode(array("Add_Shift_Details"=>$data));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch);
-
         curl_close($ch);
-
-        var_dump($result);
     }
+
+    function get_preferred_shift_period($period){
+        $serviceURL = "http://CalvinSiew:8080/shifts_preferred/".$period;
+        $json = file_get_contents($serviceURL);
+        $data = json_decode($json, TRUE);
+        $preferred_shift_list= $data["PShift_Details"];
+        return  $preferred_shift_list;
+    }
+
+    function preferred_periods(){
+        $serviceURL = "http://CalvinSiew:8080/shifts_getall_preferred";
+        $json = file_get_contents($serviceURL);
+        $data = json_decode($json, TRUE);
+        $preferred_shift_list= $data['PShift_Details'];
+        $periods = [];
+
+        foreach($preferred_shift_list as $shift){
+            if(!in_array($shift["period"],$periods )){
+                array_push($periods ,$shift["period"]);
+            }
+        }
+        return $periods;
+    }
+
+
+
+
+
+
 }
+
 ?>
 

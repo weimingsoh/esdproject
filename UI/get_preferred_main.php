@@ -43,6 +43,7 @@
     
     
     #create table headers at first
+    echo "<form method='POST' action='process_shifts.php'>";
     echo "<div class='col-md-6'>
       <table class='table table-striped' id='payroll-list' border='1'>
           <tr>
@@ -75,6 +76,7 @@
         }
         print_r($timing_days);
 
+        
         for($i=1;$i<4;$i++){
             for($j=0;$j<8;$j++){
                 if($j == 0){
@@ -106,7 +108,7 @@
                         foreach($timing_days as $index){
                             if($index == $pair_index){
                                 echo $eid_sid[array_search($index,$timing_days)][0].
-                                "<input type='checkbox' name='tick' value='".$eid_sid[array_search($index,$timing_days)][1]."'>";
+                                "<input type='checkbox' name='tick[]' value='".$eid_sid[array_search($index,$timing_days)][1]."'>";
                             }
                         }
                         echo "</td>";
@@ -116,7 +118,10 @@
             }
         }
         echo"</table>";
+        echo "<input type='submit' value='Confirm Shift Schedule'/>";
+        echo "</form>";
     }
+
     ?>
 </body>
 </html>

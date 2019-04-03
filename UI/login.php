@@ -7,7 +7,7 @@ $errors = [ isMissingOrEmpty ('username'), isMissingOrEmpty ('password') ];
 $errors = array_filter($errors);
 
 // User list
-$employeeIDs = ["jazreel","junhong","weiming"];
+$employeeIDs = ["","jazreel","junhong","weiming"];
 $employeePWs = ["12345"];
 $employerIDs = ["weilun","cheng"];
 $employerPWs = ["password"];
@@ -31,7 +31,8 @@ if ($choice == "Employer" && in_array($username,$employerIDs) && in_array($enter
 }
 //redirect for employee login location not decided yet
 elseif ($choice == "Employee" && in_array($username,$employeeIDs) && in_array($enteredPwd,$employeePWs) ){
-    header("Location: home - employee-view.php");
+    $_SESSION["empid"] = array_search($username,$employeeIDs);
+    header("Location: employee-view.php");
 }
 //error handling
 elseif (empty($username) || empty($enteredPwd)){

@@ -1,6 +1,9 @@
 <html>
 <body>
 <h1>Employee View</h1>
+<form action = "login_main.php" method = "post">
+        <input type = "submit" value = "Logout"/>
+        </form>
         <table border='1'>
             <tr>
                 <th>Employee ID</th>
@@ -13,24 +16,24 @@
                 <th>Edit</th>
             </tr>
 <?php
-include "invoke/new_service_call.php";
-$username = $_GET['username'];
-$employeeid = 1;
-$employee = get_employee($employeeid);
-         
-$employeeobj = (object) $employee;     
+include "invoke/invoke_services.php";
+Session_start();
+$employeeid = $_SESSION["empid"];
+// $employeeid = 1;
+$dao = new employee();
+$employee = $dao->get_employee($employeeid);
 #missing cfm shift and preferred shift.
 echo "
             
                 <tr>
-                    <td>$employeeobj->id</td>
-                    <td>$employeeobj->name</td>
-                    <td>$employeeobj->address</td>
-                    <td>$employeeobj->phone</td>
-                    <td>$employeeobj->sex</td>
-                    <td>$employeeobj->nationality</td>
-                    <td>$employeeobj->email</td>
-                    <td><a href='edit-employee-view.php?id=$employeeobj->id'>Edit</a></td>
+                    <td>".$employee['id']."</td>
+                    <td>".$employee['name']."</td>
+                    <td>".$employee['address']."</td>
+                    <td>".$employee['phone']."</td>
+                    <td>".$employee['sex']."</td>
+                    <td>".$employee['nationality']."</td>
+                    <td>".$employee['email']."</td>
+                    <td><a href='edit-employee-view.php?id=".$employee['id'].">Edit</a></td>
                 </tr>
                 
             </table>";

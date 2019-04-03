@@ -1,6 +1,6 @@
 <?php
 //form json object then api request? maybe can remove this page and just do api call on view
-include "invoke/new_service_call.php";
+include "invoke/invoke_services.php";
 $employeeID = $_POST["id"];
 $employeeName = $_POST["name"];
 $employeeAddress = $_POST["address"];

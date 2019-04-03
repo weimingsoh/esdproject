@@ -1,6 +1,9 @@
 <html>
     <body>
         <h1>Employer View</h1>
+        <form action = "login_main.php" method = "post">
+        <input type = "submit" value = "Logout"/>
+        </form>
         <table border='1'>
             <tr>
                 <th>Employee ID</th>
@@ -14,9 +17,10 @@
                 <th>Edit</th>
             </tr>
 <?php   
-        include "invoke/new_service_call.php"; 
+        include "invoke/invoke_services.php"; 
         //trial api call
-        $curlemployee = get_employees();
+        $dao = new employee();
+        $curlemployee = $dao->get_employees();
 
         //api request for employee database
         $apiemployees = 

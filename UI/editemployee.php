@@ -1,5 +1,5 @@
 <?php
-include "invoke/new_service_call.php";
+include "invoke/invoke_services.php";
 #api call put
 $employeeID = $_POST["id"];
 $employeeName = $_POST["name"];

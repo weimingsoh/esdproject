@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- Created with Liquid Studio 2018 (https://www.liquid-technologies.com) -->
 <schema xmlns:tns="http://www.ems.com/Shifts" elementFormDefault="qualified" targetNamespace="http://www.ems.com/Shifts" xmlns="http://www.w3.org/2001/XMLSchema">
     <complexType name="Add_Shift">
@@ -52,7 +52,14 @@
     </complexType>
     <element name="Update_Shift_Status" type="tns:Update_Shift_Status" />
 
-    <complexType name="Cshift">
+    <complexType name="CShift">
+        <sequence>
+            <element name="PShift_Details" type="tns:Cshift_Details" minOccurs="1" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+    <element name="CShift" type="tns:CShift" />
+
+    <complexType name="Cshift_Details">
         <sequence>
             <element name="Shift_id" type="integer" minOccurs="1" />
             <element name="EmployeeID" type="integer" minOccurs="1" />
@@ -61,6 +68,6 @@
             <element name="timing" type="string" minOccurs="1" />
         </sequence>
     </complexType>
-    <element name="Cshift" type="tns:Cshift" />
+    <element name="Cshift_Details" type="tns:Cshift_Details" />
 
 </schema>

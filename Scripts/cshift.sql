@@ -1,11 +1,12 @@
 CREATE DATABASE IF NOT EXISTS `cshift` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `cshift`;
 
+DROP TABLE IF EXISTS `cshift`;
 CREATE TABLE `cshift` (
-  `shift_id` INT(11) NOT NULL auto_increment,
-  `employee_id` INT(11),
-  `Period` varchar(10) NOT NULL,
-  `PDay` varchar(10) NOT NULL,
+  `ID` INT(11) NOT NULL auto_increment,
+  `EmployeeID` INT(11),
+  `Date` varchar(10) NOT NULL,
   `Timing` varchar(10) NOT NULL,
-  CONSTRAINT pshift_pk PRIMARY KEY (shift_id)
+  `Status` varchar(10) NOT NULL,
+  CONSTRAINT cshift_pk PRIMARY KEY (ID)
 );

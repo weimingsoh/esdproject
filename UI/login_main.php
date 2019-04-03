@@ -156,7 +156,12 @@ body{
 
 <body>
 <?php
-	echo[$_SESSION['errors']];
+	$_SESSION["start"];
+	if(isset($_SESSION['errors']) && !empty($_SESSION['errors'])){
+		$errors = $_SESSION["errors"];
+	}
+	
+	
         if(!isset($_POST["choice"])) {
             echo '<div class="body"></div>
             <div class="grad"></div>
@@ -176,22 +181,24 @@ body{
         }
         else {
             $choice = $_POST["choice"];
-            echo '<div class="body"></div>
-            <div class="grad"></div>
-            <div class="header">
-                <div>'.$choice.'</div>
+            echo "<div class='body'></div>
+            <div class='grad'></div>
+            <div class='header'>
+                <div>$choice</div>
                 <br>
                 <div>Login</div>
             </div>
             <br>
-            <div class="login">
+            <div class='login'>
 			<br><br>
-			<form method="post" action="login.php">
-                    <input type="text" placeholder="username" name="username"><br>
-                    <input type="password" placeholder="password" name="password"><br>
-					<input type="submit" value="Login">
+			<form method='post' action='login.php'>
+                    <input type='text' placeholder='username' name='username'><br>
+					<input type='password' placeholder='password' name='password'><br>
+					<input type ='hidden' name = 'choice' value ='$choice'>
+					<?php foreach ($errors as $error){echo $error;}?>
+					<input type='submit' value='Login'>
 			</form>
-            </div>';
+            </div>";
         }
     ?>
 

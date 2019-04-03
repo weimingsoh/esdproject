@@ -54,7 +54,7 @@
 
     <complexType name="CShift">
         <sequence>
-            <element name="PShift_Details" type="tns:Cshift_Details" minOccurs="1" maxOccurs="unbounded" />
+            <element name="CShift_Details" type="tns:Cshift_Details" minOccurs="1" maxOccurs="unbounded" />
         </sequence>
     </complexType>
     <element name="CShift" type="tns:CShift" />

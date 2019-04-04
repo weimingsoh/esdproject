@@ -59,6 +59,7 @@
 
     if(isset($_POST["period"])){
         $period = $_POST["period"];
+        echo '<input type="hidden" id="period" name="period" value="'.$period.'">';
         $preferred_shifts = $dao->get_preferred_shift_period($period);
         // print_r($preferred_shifts);
         $timings = ["Morning","Afternoon","Night"];

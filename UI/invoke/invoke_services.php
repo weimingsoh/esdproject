@@ -95,7 +95,7 @@ class shift{
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arr));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $arr);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
         curl_setopt($ch, CURLOPT_FAILONERROR, true);
         // execute!
@@ -114,7 +114,7 @@ class shift{
         $arr = '{
             "Shift_id": 0,
             "EmployeeID": 0,
-            "period": ,'.$period.',
+            "period": '.$period.',
             "p_day": "string",
             "timing": "string",
             "status": "string"
@@ -122,7 +122,7 @@ class shift{
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arr));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $arr);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
         curl_setopt($ch, CURLOPT_FAILONERROR, true);
         // execute!
@@ -130,10 +130,10 @@ class shift{
         //Error handling
         if (curl_error($ch)){
             throw new Exception(curl_error($ch));
-    }
-    // close the connection, release resources used
-    curl_close($ch);
-    return $response;
+        }
+        // close the connection, release resources used
+        curl_close($ch);
+        return $response;
     }
 
     function send_approved(){
@@ -148,8 +148,8 @@ class shift{
         return $output;
     }
 
-    function send_email(){
-        $url = "http://CalvinSiew:8083/cshifts";
+    function confirm_shifts(){
+        $url = "http://CalvinSiew:8083/cshifts_updates";
         $ch = curl_init();  
         curl_setopt($ch,CURLOPT_URL,$url);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
@@ -158,6 +158,50 @@ class shift{
 
         curl_close($ch);
         return $output;
+    }
+}
+
+class confirmed_shift{
+    
+    function cshift_period($period){
+        $url = "http://CalvinSiew:8083/cshift_get_period/".$period;
+        $json = file_get_contents($url);
+        $data = json_decode($json, TRUE);
+        $confirmed_shifts= $data['CShift_Details'];
+        return $confirmed_shifts;
+    }
+
+    function cshift_all(){
+        $url = "http://CalvinSiew:8083/cshift_getalls";
+        $json = file_get_contents($url);
+        $data = json_decode($json, TRUE);
+        $confirmed_shifts= $data['CShift_Details'];
+        return $confirmed_shifts;
+    }
+
+    function cshift_eid($eid){
+        $url = "http://CalvinSiew:8083/cshift_get_eid/".$eid;
+        $json = file_get_contents($url);
+        $data = json_decode($json, TRUE);
+        $confirmed_shifts= $data['CShift_Details'];
+        return $confirmed_shifts;
+    }
+
+    function get_periods(){
+        $shifts = $this->cshift_all();
+        $periods = [];
+        foreach($shifts as $shift){
+            array_push($periods,$shift['period']);
+        return $periods;
+        }
+    }
+
+    function eyee_periods($period,$eid){
+        $url = "http://CalvinSiew:8083/cshift_get_periodeid/".$period."/".$eid;
+        $json = file_get_contents($url);
+        $data = json_decode($json, TRUE);
+        $confirmed_shifts= $data['CShift_Details'];
+        return $confirmed_shifts;
     }
 }
 

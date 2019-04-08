@@ -5,7 +5,7 @@
 
   <meta charset="UTF-8">
 
-  <title>CodePen - Random Login Form</title>
+  <title>Klein Dining Login</title>
 
     <style>
 @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
@@ -168,7 +168,7 @@ body{
             <div class="header">
                 <div>Welcome to </div>
                 <br>
-                <div>Fun Fest </div>
+                <div>Klein Dining </div>
             </div>
             <br>
             <div class="login">

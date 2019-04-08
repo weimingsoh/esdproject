@@ -1,39 +1,59 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html>
 
    <head>
       <title>Preferred Shift Form</title>
       <style>
-            table {
-              width:100%;
-            }
-            table, th, td {
-              border: 1px solid black;
-              border-collapse: collapse;
-            }
-            th, td {
-              padding: 15px;
-              text-align: left;
-            }
-            table#t01 tr:nth-child(even) {
-              background-color: #eee;
-            }
-            table#t01 tr:nth-child(odd) {
-             background-color: #fff;
-            }
-            table#t01 th {
-              background-color: black;
-              color: white;
-            }
-            </style>
+body,h1,h2,h3,h4,h5,h6 {font-family: 'Raleway', sans-serif}
+#customers {
+font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+width: 100%;
+}
+
+#customers td, #customers th {
+border: 1px solid #000000;
+padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #DCDCDC;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+padding-top: 12px;
+padding-bottom: 12px;
+text-align: left;
+background-color: #FAEBD7;
+color: black;
+}.topnav a {
+float: left;
+display: block;
+color: #00000;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}.topnav {
+overflow: hidden;
+background-color: AntiqueWhite;
+width: 100%;
+}
+</style>
    </head>
 	
    <body>
-       <h3>Preferred Schedule</h3>
-      <form action="preferred_shift.php" method='post'>
-        <input name="empid" type="hidden" value="1"/>
+   <?php  session_start();
+   if (isset($_SESSION['eid'])) {
+    $eid = $_SESSION['eid'];
+    unset($_SESSION['eid']);
+   }
+   
+   echo "<form action='preferred_shift.php' method='post'>";
+   echo "<input name='empid' type='hidden' value='$eid'/>";
+   ?>
+       <h1>Preferred Schedule</h1>
+       <h3> Period: 20190101</h3>
         <input name="period" type="hidden" value="20190101"/>
-         <table id='t01'>
+         <table id='customers'>
              <th>
                 <td>Monday</td>
                 <td>Tuesday</td>
@@ -46,7 +66,7 @@
              <tr>
                  <td>Morning</td>
                  <td><input type="checkbox" name="Shift[]" value="Monday,Morning"></td>
-                 <td><input type="checkbox" name="Shift[]" value="TuesdayMorning"></td>
+                 <td><input type="checkbox" name="Shift[]" value="Tuesday,Morning"></td>
                  <td><input type="checkbox" name="Shift[]" value="Wednesday,Morning"></td>
                  <td><input type="checkbox" name="Shift[]" value="Thursday,Morning"></td>
                  <td><input type="checkbox" name="Shift[]" value="Friday,Morning"></td>

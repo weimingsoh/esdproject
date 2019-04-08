@@ -1,7 +1,7 @@
 <?php
 
 require_once 'include/common.php';
-$_SESSION["start"];
+session_start();
 // isMissingOrEmpty(...) is in common.php
 $errors = [ isMissingOrEmpty ('username'), isMissingOrEmpty ('password') ];
 $errors = array_filter($errors);
@@ -14,25 +14,26 @@ $employerPWs = ["password"];
 
 if(!isEmpty($errors)) {
     $_SESSION['errors'] = $errors;
+    unset($_SESSION['errors']);
     header("Location: login_main.php");
     // include "login_main.php";
     print_r($_SESSION['errors']);
 
     exit();
 }
-
+var_dump($_POST);
 $choice = $_POST['choice'];
 $username = $_POST['username'];
 $enteredPwd = $_POST['password'];
 
 //redirect for employer login - location not decided yet
 if ($choice == "Employer" && in_array($username,$employerIDs) && in_array($enteredPwd,$employerPWs) ){
-    header("Location: employer-view.php");
+    header("Location: employer_nav.php");
 }
 //redirect for employee login location not decided yet
 elseif ($choice == "Employee" && in_array($username,$employeeIDs) && in_array($enteredPwd,$employeePWs) ){
-    $_SESSION["empid"] = array_search($username,$employeeIDs);
-    header("Location: employee-view.php");
+    $_SESSION["eid"] = array_search($username,$employeeIDs);
+    header("Location: employee_nav.php");
 }
 //error handling
 elseif (empty($username) || empty($enteredPwd)){

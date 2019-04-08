@@ -16,8 +16,7 @@ foreach($shift_ids as $shift_id){
     $dao->approve_shifts($shift_id);
 }
 $dao->reject_shifts($period);
-$dao->send_approved();
-$dao->confirm_shifts();
+$dao->send_approved($period);   
 
 $apiToken = "800648991:AAGYAmp26T-kX5FeHe3M44LukCZnfsstUdA";
 

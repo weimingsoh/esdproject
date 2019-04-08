@@ -5,6 +5,8 @@ $period = $_SESSION['period'];
 $dao = new confirmed_shift();
 $shifts = $dao->cshift_period($period);
 
+
+echo "<h1>Confirmed Shifts for Period: 20190101 :)";
 #Nav buttons to 
 echo"<form method='post' action='confirmed_shifts_eyer.php'>
 <button type='submit'>Confirmed Shifts</button></form>";

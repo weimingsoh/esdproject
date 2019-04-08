@@ -1,7 +1,10 @@
 <?php
+// change $machine to your local machine name
+$machine = "DESKTOP-L5MS6G1";
+
 class payroll{
     function get_payroll(){
-        $serviceURL = "http://DESKTOP-L5MS6G1:8085/payroll1";
+        $serviceURL = "http://$machine:8085/payroll1";
         $json = file_get_contents($serviceURL);
         $data = json_decode($json, TRUE);
         $payroll_list= $data['Payroll'];
@@ -9,7 +12,7 @@ class payroll{
     }
     
     function get_by_eid($id) {
-        $serviceURL = "http://DESKTOP-L5MS6G1:8085/payroll_by_employeeid/".$id;
+        $serviceURL = "http://$machine:8085/payroll_by_employeeid/".$id;
         $json = file_get_contents($serviceURL);
         $data = json_decode($json, TRUE);
         $payroll_list= $data['Payroll'];
@@ -17,7 +20,7 @@ class payroll{
     }
     
     function get_by_period($period){
-        $serviceURL = "http://DESKTOP-L5MS6G1:8085/payroll_by_period".$period;
+        $serviceURL = "http://$machine:8085/payroll_by_period".$period;
         $json = file_get_contents($serviceURL);
         $data = json_decode($json, TRUE);
         $payroll_list= $data['Payroll'];
@@ -46,7 +49,7 @@ class payroll{
         return $empids;
     }
     function send_payroll_email($period){
-        $url = "http://DESKTOP-L5MS6G1:8085/payroll/".$period;
+        $url = "http://$machine:8085/payroll/".$period;
         $ch = curl_init();  
         curl_setopt($ch,CURLOPT_URL,$url);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
@@ -57,7 +60,7 @@ class payroll{
 
 class shift{
     function post_preferred_form($data){
-        $url = 'http://DESKTOP-L5MS6G1:8082/shifts_add_preferred';
+        $url = "http://$machine:8082/shifts_add_preferred";
         $ch = curl_init($url);
         $payload = json_encode(array("Add_Shift_Details"=>$data));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
@@ -68,7 +71,7 @@ class shift{
     }
 
     function get_preferred_shift_period($period){
-        $serviceURL = "http://DESKTOP-L5MS6G1:8082/shifts_get_preferred".$period;
+        $serviceURL = "http://$machine:8082/shifts_get_preferred".$period;
         $json = file_get_contents($serviceURL);
         $data = json_decode($json, TRUE);
         $preferred_shift_list= $data["PShift_Details"];
@@ -76,7 +79,7 @@ class shift{
     }
 
     function preferred_periods(){
-        $serviceURL = "http://DESKTOP-L5MS6G1:8082/shifts_get_all";
+        $serviceURL = "http://$machine:8082/shifts_get_all";
         $json = file_get_contents($serviceURL);
         $data = json_decode($json, TRUE);
         $preferred_shift_list= $data['PShift_Details'];
@@ -99,7 +102,7 @@ class shift{
             "timing": "string",
             "status": "string"
           }';
-        $url ="http://DESKTOP-L5MS6G1:8082/shifts_approved/".$shift_id;
+        $url ="http://$machine:8082/shifts_approved/".$shift_id;
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
@@ -118,7 +121,7 @@ class shift{
     }
 
     function reject_shifts($period){
-        $url ="http://DESKTOP-L5MS6G1:8082/shift_put_rejected/".$period;
+        $url ="http://$machine:8082/shift_put_rejected/".$period;
         $arr = '{
             "Shift_id": 0,
             "EmployeeID": 0,
@@ -145,7 +148,7 @@ class shift{
     }
 
     function send_approved($period){
-        $url ="http://DESKTOP-L5MS6G1:8082/shifts_send_approved/" . $period;
+        $url ="http://$machine:8082/shifts_send_approved/" . $period;
         $ch = curl_init();  
         curl_setopt($ch,CURLOPT_URL,$url);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
@@ -155,24 +158,12 @@ class shift{
         curl_close($ch);
         return $output;
     }
-
-    // function confirm_shifts(){
-    //     $url = "http://DESKTOP-L5MS6G1:8083/cshifts_updates";
-    //     $ch = curl_init();  
-    //     curl_setopt($ch,CURLOPT_URL,$url);
-    //     curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-    //     curl_setopt($ch,CURLOPT_HEADER, false); 
-    //     $output=curl_exec($ch);
-
-    //     curl_close($ch);
-    //     return $output;
-    // }
 }
 
 class confirmed_shift{
     
     function cshift_period($period){
-        $url = "http://DESKTOP-L5MS6G1:8088/cshifts_get_period/".$period;
+        $url = "http://$machine:8088/cshifts_get_period/".$period;
         $json = file_get_contents($url);
         $data = json_decode($json, TRUE);
         $confirmed_shifts= $data['CShift_Details'];
@@ -180,7 +171,7 @@ class confirmed_shift{
     }
 
     function cshift_all(){
-        $url = "http://DESKTOP-L5MS6G1:8088/cshifts";
+        $url = "http://$machine:8088/cshifts";
         $json = file_get_contents($url);
         $data = json_decode($json, TRUE);
         $confirmed_shifts= $data['CShift_Details'];
@@ -188,7 +179,7 @@ class confirmed_shift{
     }
 
     function cshift_eid($eid){
-        $url = "http://DESKTOP-L5MS6G1:8088/cshifts_get_eid/".$eid;
+        $url = "http://$machine:8088/cshifts_get_eid/".$eid;
         $json = file_get_contents($url);
         $data = json_decode($json, TRUE);
         $confirmed_shifts= $data['CShift_Details'];
@@ -207,7 +198,7 @@ class confirmed_shift{
     }
 
     function eyee_periods($period,$eid){
-        $url = "http://DESKTOP-L5MS6G1:8088/cshifts_get_periodeid/".$period."/".$eid;
+        $url = "http://$machine:8088/cshifts_get_periodeid/".$period."/".$eid;
         $json = file_get_contents($url);
         $data = json_decode($json, TRUE);
         $confirmed_shifts= $data['CShift_Details'];
@@ -218,7 +209,7 @@ class confirmed_shift{
 
 class employee{
     function get_employees(){
-        $serviceURL = "http://DESKTOP-L5MS6G1:8081/employees";
+        $serviceURL = "http://$machine:8081/employees";
         $json = file_get_contents($serviceURL);
         $data = json_decode($json, TRUE);
         $employee_list= $data['Employee'];
@@ -227,7 +218,7 @@ class employee{
     }
     
     function get_employee($id) {
-        $serviceURL = "http://DESKTOP-L5MS6G1:8081/employee/".$id;
+        $serviceURL = "http://$machine:8081/employee/".$id;
         $json = file_get_contents($serviceURL);
         $data = json_decode($json, TRUE);
         #$employee_list= $data['Employee'];
@@ -236,7 +227,7 @@ class employee{
     
     #put
     function update_employee($id,$data){
-        $url = 'http://DESKTOP-L5MS6G1:8081/employees1/'.$id;
+        $url = "http://$machine:8081/employees1/".$id;
         $ch = curl_init($url);
         
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST,"PUT");
@@ -249,7 +240,7 @@ class employee{
     }
     
     function create_employee($data){
-        $url = 'http://DESKTOP-L5MS6G1:8081/employee';
+        $url = "http://$machine:8081/employee";
         $ch = curl_init($url);
         $payload = json_encode($data);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);

@@ -2,7 +2,7 @@
 
 #class Employee{
     function get_employees(){
-        $serviceURL = "http://DESKTOP-I09E16I0:8080/employees";
+        $serviceURL = "http://DESKTOP-I0E16I0:8080/employees";
         $json = file_get_contents($serviceURL);
         $data = json_decode($json, TRUE);
         $employee_list= $data['Employee'];

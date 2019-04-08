@@ -1,16 +1,9 @@
 <html>
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
+    <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  
   width: 100%;
 }
 
@@ -29,17 +22,27 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   text-align: left;
   background-color: #FAEBD7;
   color: black;
+}.topnav a {
+  float: left;
+  display: block;
+  color: #00000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}.topnav {
+  overflow: hidden;
+  background-color: AntiqueWhite;
+  width: 100%;
 }
-</style> 
-</head>  
-  <body class="w3-light-grey w3-content" style="max-width:1600px">
-    <div class ="container">
+</style>
+    </head>
+    <body>
         
         <h1>Add Employeee</h1>
         
 
         <form action='addemployee.php' method='POST'>
-            <table id="customers">
+            <table>
                 <tr>
                     <td>
                         ID

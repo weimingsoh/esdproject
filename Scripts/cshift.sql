@@ -3,19 +3,18 @@ USE `cshift`;
 
 DROP TABLE IF EXISTS `cshift`;
 CREATE TABLE `cshift` (
-  `Shift_id` INT(11) NOT NULL auto_increment,
+  `shift_id` INT(11) NOT NULL auto_increment,
   `employee_id` INT(11),
   `Period` varchar(10) NOT NULL,
   `PDay` varchar(10) NOT NULL,
   `Timing` varchar(10) NOT NULL,
-  `Status` varchar(10) NOT NULL,
-  CONSTRAINT cshift_pk PRIMARY KEY (Shift_id)
+  CONSTRAINT cshift_pk PRIMARY KEY (shift_id)
 );
 
-INSERT INTO `Cshift` (`employee_id`, `Period`, `PDay`, `Timing`,`Status`) VALUES
-(2, 20180101, 'Tuesday', 'Morning','CONFIRMED'),
-(2, 20180101, 'Friday', 'Morning','CONFIRMED'),
-(3, 20180101, 'Wednesday', 'Night','CONFIRMED'),
-(3, 20180101, 'Tuesday', 'Night','CONFIRMED'),
-(4, 20180101, 'Tuesday', 'Afternoon','CONFIRMED'),
-(4, 20180101, 'Wednesday', 'Night','CONFIRMED');
+INSERT INTO `Cshift` (`employee_id`, `Period`, `PDay`, `Timing`) VALUES
+(2, 20180101, 'Tuesday', 'Morning'),
+(2, 20180101, 'Friday', 'Morning'),
+(3, 20180101, 'Wednesday', 'Night'),
+(3, 20180101, 'Tuesday', 'Night'),
+(4, 20180101, 'Tuesday', 'Afternoon'),
+(4, 20180101, 'Wednesday', 'Night');

@@ -1,7 +1,6 @@
 <?php
 include "invoke/invoke_services.php";
 #api call put
-
 $employeeID = $_POST["id"];
 $employeeName = $_POST["name"];
 $employeeAddress = $_POST["address"];
@@ -15,5 +14,4 @@ $dao = new employee();
 $dao->update_employee($employeeID, $data);
 
 header("Location: employer-view.php");
-echo "hello world";
 ?>

@@ -1,10 +1,10 @@
 <?php
 
-require_once 'include/common.php';
+//require_once 'include/common.php';
 session_start();
 // isMissingOrEmpty(...) is in common.php
-$errors = [ isMissingOrEmpty ('username'), isMissingOrEmpty ('password') ];
-$errors = array_filter($errors);
+//$errors = [ isMissingOrEmpty ('username'), isMissingOrEmpty ('password') ];
+//$errors = array_filter($errors);
 
 // User list
 $employeeIDs = ["","jazreel","junhong","weiming"];
@@ -12,15 +12,15 @@ $employeePWs = ["12345"];
 $employerIDs = ["weilun","cheng"];
 $employerPWs = ["password"];
 
-if(!isEmpty($errors)) {
-    $_SESSION['errors'] = $errors;
-    unset($_SESSION['errors']);
-    header("Location: login_main.php");
-    // include "login_main.php";
-    print_r($_SESSION['errors']);
+//if(!isEmpty($errors)) {
+//    $_SESSION['errors'] = $errors;
+//    unset($_SESSION['errors']);
+//    header("Location: login_main.php");
+      //include "login_main.php";
+ //   print_r($_SESSION['errors']);
 
-    exit();
-}
+//    exit();
+//}
 var_dump($_POST);
 $choice = $_POST['choice'];
 $username = $_POST['username'];

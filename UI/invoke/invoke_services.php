@@ -2,7 +2,7 @@
 
 class payroll{
     // change const MACHINE to your local machine name
-    const MACHINE = "CalvinSiew";
+    const MACHINE = "LAPTOP-IP54NA0O";
     function get_payroll(){
         $serviceURL = "http://" . self::MACHINE. ":8085/payroll1";
         $json = file_get_contents($serviceURL);
@@ -60,7 +60,7 @@ class payroll{
 
 class shift{
     // change const MACHINE to your local machine name
-    const MACHINE = "CalvinSiew";
+    const MACHINE = "LAPTOP-IP54NA0O";
 
     function post_preferred_form($data){
         $url = "http://". self::MACHINE . ":8082/shifts_add_preferred";
@@ -165,7 +165,7 @@ class shift{
 
 class confirmed_shift{    
     // change const MACHINE to your local machine name
-    const MACHINE = "CalvinSiew";
+    const MACHINE = "LAPTOP-IP54NA0O";
 
     function cshift_period($period){
         $url = "http://". self::MACHINE . ":8088/cshifts_get_period/".$period;
@@ -214,7 +214,7 @@ class confirmed_shift{
 
 class employee{
     // change const MACHINE to your local machine name
-    const MACHINE = "CalvinSiew";
+    const MACHINE = "LAPTOP-IP54NA0O";
 
     function get_employees(){
         $serviceURL = "http://" . self::MACHINE . ":8081/employees";
